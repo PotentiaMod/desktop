@@ -30,7 +30,7 @@ git submodule update
 Install dependencies using:
 
 ```bash
-npm ci
+npm install --legacy-peer-deps
 ```
 
 Then fetch extra library, packager, and extension files using:
