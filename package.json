@@ -4,7 +4,7 @@
   "version": "1.16.0",
   "license": "GPL-3.0",
   "author": {
-    "email": "crystalfranks28@outlook.com",
+    "email": "crystalfranks18@hotmail.com",
     "name": "Crystal Franks"
   },
   "type": "commonjs",
@@ -56,7 +56,7 @@
   },
   "bugs": {
     "url": "https://github.com/PotentiaMod/desktop/issues",
-    "email": "crystalfranks28@outlook.com"
+    "email": "crystalfranks18@hotmail.com"
   },
   "main": "./src-main/entrypoint.js",
   "build": {
