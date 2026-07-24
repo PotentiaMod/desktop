@@ -1,8 +1,8 @@
-# TurboWarp Desktop
+# PotentiaMod Desktop
 
-TurboWarp as a desktop app.
+PotentiaMod as a desktop app.
 
-If you're looking for downloads, head to: https://desktop.turbowarp.org/
+If you're looking for downloads, head to: https://potentiamod.github.io/desktop/
 
 Licensed under the GPLv3.0. See LICENSE for more information.
 
@@ -17,7 +17,7 @@ The website source code is in the `docs` folder.
 We use submodules, so clone using:
 
 ```bash
-git clone --recursive https://github.com/TurboWarp/desktop turbowarp-desktop
+git clone --recursive https://github.com/PotentiaMod/desktop potentiamod-desktop
 ```
 
 or run this after cloning:
@@ -73,7 +73,7 @@ We've found that development can work pretty well if you open two terminals side
 
 ## Linux sandbox helper error
 
-On some Linux distributions, Electron will crash with the message `The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /home/.../turbowarp-desktop/node_modules/electron/dist/chrome-sandbox is owned by root and has mode 4755.`. Notably we have seen this happen on Debian 10 and earlier and Ubuntu 24.04 and later.
+On some Linux distributions, Electron will crash with the message `The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /home/.../potentiamod-desktop/node_modules/electron/dist/chrome-sandbox is owned by root and has mode 4755.`. Notably we have seen this happen on Debian 10 and earlier and Ubuntu 24.04 and later.
 
 For development, you can run these commands to enable unprivileged user namespaces until you reboot:
 
@@ -112,30 +112,18 @@ npx electron-builder --linux deb
 
 You can typically only package for a certain operating system while on that operating system.
 
-## Code signing policy
-
-TurboWarp Desktop uses a free code signing provided by [SignPath.io](https://about.signpath.io/), certificate by [SignPath Foundation](https://signpath.org/).
-
- * Approvers:
-   * [GarboMuffin](https://github.com/GarboMuffin)
- * Privacy policy: https://desktop.turbowarp.org/privacy.html
-
 ## Advanced customizations
 
-TurboWarp Desktop lets you configure custom JS and CSS without rebuilding the app.
+PotentiaMod Desktop lets you configure custom JS and CSS without rebuilding the app.
 
-Find TurboWarp Desktop's data path by using the list below or by clicking "?" in the top right corner, then "Desktop Settings", then "Open User Data", then opening the highlighted folder, or refer to this list:
+Find PotentiaMod Desktop's data path by using the list below or by clicking "?" in the top right corner, then "Desktop Settings", then "Open User Data", then opening the highlighted folder, or refer to this list:
 
- - Windows (except Microsoft Store): `%APPDATA%/turbowarp-desktop`
- - Microsoft Store: Open `%LOCALAPPDATA%/Packages`, find the folder with the word `TurboWarpDesktop` in it, then open `LocalCache/Roaming/turbowarp-desktop`
- - macOS (except Mac App Store): `~/Library/Application Support/turbowarp-desktop`
- - Mac App Store: `~/Library/Containers/org.turbowarp.desktop/Data/Library/Application Support/turbowarp-desktop` (note that the `org.turbowarp.desktop` part may appear as `TurboWarp` in Finder)
- - Linux (except Flatpak and Snap): `~/.config/turbowarp-desktop`
- - Linux (Flatpak): `~/.var/app/org.turbowarp.TurboWarp/config/turbowarp-desktop`
- - Linux (Snap): `~/snap/turbowarp-desktop/current/.config/turbowarp-desktop`
+ - Windows (except Microsoft Store): `%APPDATA%/potentiamod-desktop`
+ - Microsoft Store: Open `%LOCALAPPDATA%/Packages`, find the folder with the word `PotentiaModDesktop` in it, then open `LocalCache/Roaming/potentiamod-desktop`
+ - macOS (except Mac App Store): `~/Library/Application Support/potentiamod-desktop`
+ - Mac App Store: `~/Library/Containers/org.potentiamod.desktop/Data/Library/Application Support/potentiamod-desktop` (note that the `org.potentiamod.desktop` part may appear as `PotentiaMod` in Finder)
+ - Linux (except Flatpak and Snap): `~/.config/potentiamod-desktop`
+ - Linux (Flatpak): `~/.var/app/org.potentiamod.PotentiaMod/config/potentiamod-desktop`
+ - Linux (Snap): `~/snap/potentiamod-desktop/current/.config/potentiamod-desktop`
 
-Create the file `userscript.js` in this folder to configure custom JS. Create the file `userstyle.css` in this folder to configure custom CSS. Completely restart TurboWarp Desktop (including all windows) to apply.
-
-## Uninstall
-
-See https://desktop.turbowarp.org/uninstall
+Create the file `userscript.js` in this folder to configure custom JS. Create the file `userstyle.css` in this folder to configure custom CSS. Completely restart PotentiaMod Desktop (including all windows) to apply.
