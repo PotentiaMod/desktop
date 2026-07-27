@@ -22,20 +22,20 @@ jobs:
       run: npm install --legacy-peer-deps --loglevel=info
     - name: Fetch
       run: npm run fetch
-      run: node scripts/prepare-ae-extensions.mjs
-      run: node scripts/prepare-am-extensions.mjs
-      run: node scripts/prepare-ark-extensions.mjs
-      run: node scripts/prepare-bilup-extensions.mjs
-      run: node scripts/prepare-dash-extensions.mjs
-      run: node scripts/prepare-dm-extensions.mjs
-      run: node scripts/prepare-em-extensions.mjs
-      run: node scripts/prepare-gm-extensions.mjs
-      run: node scripts/prepare-mw-extensions.mjs
-      run: node scripts/prepare-nb-extensions.mjs
-      run: node scripts/prepare-pm-extensions.mjs
-      run: node scripts/prepare-sn-extensions.mjs
-      run: node scripts/prepare-sp-extensions.mjs
-      run: node scripts/prepare-ztengine-extensions.mjs
+            node scripts/prepare-ae-extensions.mjs
+            node scripts/prepare-am-extensions.mjs
+            node scripts/prepare-ark-extensions.mjs
+            node scripts/prepare-bilup-extensions.mjs
+            node scripts/prepare-dash-extensions.mjs
+            node scripts/prepare-dm-extensions.mjs
+            node scripts/prepare-em-extensions.mjs
+            node scripts/prepare-gm-extensions.mjs
+            node scripts/prepare-mw-extensions.mjs
+            node scripts/prepare-nb-extensions.mjs
+            node scripts/prepare-pm-extensions.mjs
+            node scripts/prepare-sn-extensions.mjs
+            node scripts/prepare-sp-extensions.mjs
+            node scripts/prepare-ztengine-extensions.mjs
     - name: Compile
       run: npm run webpack:prod
     - name: Package
