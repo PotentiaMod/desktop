@@ -23,6 +23,34 @@ jobs:
     - name: Prepare extensions
       # Don't need to do a full fetch, that would just cause a lot of unnecessary traffic
       run: node scripts/prepare-extensions.mjs
+    - name: Prepare Astra Editor extensions
+      run: node scripts/prepare-ae-extensions.mjs
+    - name: Prepare AcidMod extensions
+      run: node scripts/prepare-am-extensions.mjs
+    - name: Prepare Ark IDE extensions
+      run: node scripts/prepare-ark-extensions.mjs
+    - name: Prepare Bilup extensions
+      run: node scripts/prepare-bilup-extensions.mjs
+    - name: Prepare Dash extensions
+      run: node scripts/prepare-dash-extensions.mjs
+    - name: Prepare DinosaurMod extensions
+      run: node scripts/prepare-dm-extensions.mjs
+    - name: Prepare ElectraMod extensions
+      run: node scripts/prepare-em-extensions.mjs
+    - name: Prepare GaiaMod extensions
+      run: node scripts/prepare-gm-extensions.mjs
+    - name: Prepare Mistium extensions
+      run: node scripts/prepare-mw-extensions.mjs
+    - name: Prepare NitroBolt extensions
+      run: node scripts/prepare-nb-extensions.mjs
+    - name: Prepare PenguinMod extensions
+      run: node scripts/prepare-pm-extensions.mjs
+    - name: Prepare Snail IDE extensions
+      run: node scripts/prepare-sn-extensions.mjs
+    - name: Prepare SharkPool extensions
+      run: node scripts/prepare-sp-extensions.mjs
+    - name: Prepare 02Engine extensions
+      run: node scripts/prepare-ztengine-extensions.mjs
     - name: Compile
       run: npm run webpack:compile
     - name: Package
