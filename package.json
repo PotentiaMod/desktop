@@ -69,7 +69,21 @@
       "src-renderer/**/*",
       "dist-renderer-webpack/**/*",
       "dist-library-files/**/*",
-      "dist-extensions/**/*"
+      "dist-extensions/**/*",
+      "dist-ae-extensions/**/*",
+      "dist-am-extensions/**/*",
+      "dist-ark-extensions/**/*",
+      "dist-bilup-extensions/**/*",
+      "dist-dash-extensions/**/*",
+      "dist-dm-extensions/**/*",
+      "dist-em-extensions/**/*",
+      "dist-gm-extensions/**/*",
+      "dist-mw-extensions/**/*",
+      "dist-nb-extensions/**/*",
+      "dist-pm-extensions/**/*",
+      "dist-sn-extensions/**/*",
+      "dist-sp-extensions/**/*",
+      "dist-ztengine-extensions/**/*"
     ],
     "extraResources": [
       {
