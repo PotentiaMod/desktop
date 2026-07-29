@@ -20,3 +20,6 @@ development.provisionprofile
 
 # Apple App Store Connect API key
 *.p8
+potentiamod
+potentiamod.pub
+*.pub
