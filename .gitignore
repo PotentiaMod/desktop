@@ -9,6 +9,37 @@ dist
 dist-renderer-webpack
 dist-library-files
 dist-extensions
+dist-extensions-temp
+dist-pot-extensions
+dist-pot-extensions-temp
+dist-nb-extensions
+dist-nb-extensions-temp
+dist-dash-extensions
+dist-dash-extensions-temp
+dist-bilup-extensions
+dist-bilup-extensions-temp
+dist-ae-extensions
+dist-ae-extensions-temp
+dist-ztengine-extensions
+dist-ztengine-extensions-temp
+dist-mw-extensions
+dist-mw-extensions-temp
+dist-sp-extensions
+dist-sp-extensions-temp
+dist-pm-extensions
+dist-pm-extensions-temp
+dist-dm-extensions
+dist-dm-extensions-temp
+dist-sn-extensions
+dist-sn-extensions-temp
+dist-ark-extensions
+dist-ark-extensions-temp
+dist-em-extensions
+dist-em-extensions-temp
+dist-gm-extensions
+dist-gm-extensions-temp
+dist-other-extensions
+dist-other-extensions-temp
 src-renderer/packager/standalone.html
 
 # Debian release scripts create files that shouldn't be committed
