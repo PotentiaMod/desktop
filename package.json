@@ -1,7 +1,7 @@
 {
   "name": "potentiamod-desktop",
   "description": "TurboWarp mod with a new themes, new features and more!",
-  "version": "1.16.0",
+  "version": "1.19.0",
   "license": "GPL-3.0",
   "author": {
     "email": "crystalfranks18@hotmail.com",
@@ -70,8 +70,9 @@
       "dist-renderer-webpack/**/*",
       "dist-library-files/**/*",
       "dist-extensions/**/*",
+      "dist-pot-extensions/**/*",
       "dist-ae-extensions/**/*",
-      "dist-am-extensions/**/*",
+      "dist-other-extensions/**/*",
       "dist-ark-extensions/**/*",
       "dist-bilup-extensions/**/*",
       "dist-dash-extensions/**/*",
