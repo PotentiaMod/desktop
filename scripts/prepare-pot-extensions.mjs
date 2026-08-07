@@ -6,7 +6,7 @@ import zlib from 'node:zlib';
 
 const outputDirectory = pathUtil.join(import.meta.dirname, '../dist-pot-extensions/');
 const potExtensionsBaseURL = (
-  process.env.POT_EXTENSIONS_BASE_URL || 'https://potentiamod.github.io/extensions/'
+  process.env.POT_EXTENSIONS_BASE_URL || 'https://potentiamod.github.io/extensions'
 ).replace(/\/+$/, '');
 
 const brotliCompress = promisify(zlib.brotliCompress);

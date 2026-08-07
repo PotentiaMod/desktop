@@ -6,7 +6,7 @@ import zlib from 'node:zlib';
 
 const outputDirectory = pathUtil.join(import.meta.dirname, '../dist-dm-extensions/');
 const dmExtensionsBaseURL = (
-  process.env.DM_EXTENSIONS_BASE_URL || 'https://potentiamod.github.io/extensions/'
+  process.env.DM_EXTENSIONS_BASE_URL || 'https://potentiamod.github.io/extensions'
 ).replace(/\/+$/, '');
 
 const brotliCompress = promisify(zlib.brotliCompress);

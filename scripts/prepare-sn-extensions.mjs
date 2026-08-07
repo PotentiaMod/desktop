@@ -6,7 +6,7 @@ import zlib from 'node:zlib';
 
 const outputDirectory = pathUtil.join(import.meta.dirname, '../dist-sn-extensions/');
 const snExtensionsBaseURL = (
-  process.env.SN_EXTENSIONS_BASE_URL || 'https://potentiamod.github.io/extensions/'
+  process.env.SN_EXTENSIONS_BASE_URL || 'https://potentiamod.github.io/extensions'
 ).replace(/\/+$/, '');
 
 const brotliCompress = promisify(zlib.brotliCompress);

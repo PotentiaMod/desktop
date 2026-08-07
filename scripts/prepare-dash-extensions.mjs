@@ -6,7 +6,7 @@ import zlib from 'node:zlib';
 
 const outputDirectory = pathUtil.join(import.meta.dirname, '../dist-dash-extensions/');
 const dashExtensionsBaseURL = (
-  process.env.DASH_EXTENSIONS_BASE_URL || 'https://potentiamod.github.io/extensions/'
+  process.env.DASH_EXTENSIONS_BASE_URL || 'https://potentiamod.github.io/extensions'
 ).replace(/\/+$/, '');
 
 const brotliCompress = promisify(zlib.brotliCompress);
