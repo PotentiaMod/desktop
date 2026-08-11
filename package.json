@@ -49,7 +49,7 @@
       "terser-webpack-plugin": "^4.2.3"
     }
   },
-  "homepage": "https://https://potentiamod.github.io/desktop",
+  "homepage": "https://potentiamod.github.io/pot-desktop.html",
   "repository": {
     "type": "git",
     "url": "https://github.com/PotentiaMod/desktop.git"
