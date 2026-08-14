@@ -72,6 +72,7 @@
       "dist-extensions/**/*",
       "dist-pot-extensions/**/*",
       "dist-ae-extensions/**/*",
+      "dist-astra-extensions/**/*",
       "dist-other-extensions/**/*",
       "dist-ark-extensions/**/*",
       "dist-bilup-extensions/**/*",

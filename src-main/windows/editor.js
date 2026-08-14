@@ -590,6 +590,120 @@ class EditorWindow extends ProjectRunningWindow {
   applySettings () {
     this.window.webContents.setBackgroundThrottling(settings.backgroundThrottling);
   }
+  
+  onBeforeRequest (details, callback) {
+    if (details.resourceType === 'cspReport' || details.resourceType === 'ping') {
+      return callback({
+        cancel: true
+      });
+    }
+
+    const parsed = new URL(details.url);
+
+    // Requests from various extension libraries are always routed through their corresponding local protocols and handled centrally by the protocol layer,
+// following the "cloud-first, fallback to local on failure" logic (see `remoteFallback` in `src-main/protocols.js`).
+    if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `tw-extensions://.${parsed.pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `pot-extensions://.${parsed.pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `nb-extensions://.${parsed.pathname}`
+      });
+    }
+
+    if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `bilup-extensions://.${parsed.pathname}`
+      });
+    }
+
+    if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions')) {
+        pathname = pathname.slice('/extensions'.length);
+      }
+      return callback({
+        redirectURL: `ae-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `ztengine-extensions://.${parsed.pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `dash-extensions://.${parsed.pathname}`
+      });
+    }
+
+    if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `mw-extensions://.${parsed.pathname}`
+      });
+    }
+
+    if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `sp-extensions://.${parsed.pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `pm-extensions://.${parsed.pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `dm-extensions://.${parsed.pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `sn-extensions://.${parsed.pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `ark-extensions://.${parsed.pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `em-extensions://.${parsed.pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `gm-extensions://.${parsed.pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io/extensions/') {
+      return callback({
+        redirectURL: `other-extensions://.${parsed.pathname}`
+      });
+    }
+
+    super.onBeforeRequest(details, callback);
+  }
 
   enumerateMediaDevices () {
     // Used by desktop settings

@@ -66,6 +66,156 @@ const FILE_SCHEMES = {
     defaultExtension: '.html',
     csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
   },
+  'pot-extensions': {
+    root: path.resolve(__dirname, '../dist-pot-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'nb-extensions': {
+    root: path.resolve(__dirname, '../dist-nb-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'ae-extensions': {
+    root: path.resolve(__dirname, '../dist-ae-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'ztengine-extensions': {
+    root: path.resolve(__dirname, '../dist-ztengine-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'bilup-extensions': {
+    root: path.resolve(__dirname, '../dist-bilup-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'dash-extensions': {
+    root: path.resolve(__dirname, '../dist-dash-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'mw-extensions': {
+    root: path.resolve(__dirname, '../dist-mw-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'sp-extensions': {
+    root: path.resolve(__dirname, '../dist-sp-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'pm-extensions': {
+    root: path.resolve(__dirname, '../dist-pm-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'dm-extensions': {
+    root: path.resolve(__dirname, '../dist-dm-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'sn-extensions': {
+    root: path.resolve(__dirname, '../dist-sn-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'ark-extensions': {
+    root: path.resolve(__dirname, '../dist-ark-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'em-extensions': {
+    root: path.resolve(__dirname, '../dist-em-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'gm-extensions': {
+    root: path.resolve(__dirname, '../dist-gm-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
+  'other': {
+    root: path.resolve(__dirname, '../dist-other-extensions'),
+    supportFetch: true,
+    brotli: true,
+    embeddable: true,
+    stream: true,
+    directoryIndex: 'index.html',
+    defaultExtension: '.html',
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+  },
   'tw-update': {
     root: path.resolve(__dirname, '../src-renderer/update'),
     csp: "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src https://desktop.turbowarp.org"
