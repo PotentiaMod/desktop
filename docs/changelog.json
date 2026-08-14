@@ -1,6 +1,14 @@
 [
+{
+    "version": "1.19.7",
+    "date": "2026-8-14",
+    "notes": [
+      "Adds many new colors and a remove extension feature. Extensions still not local yet.",
+      "Certain fixes"
+    ]
+  },
   {
-    "version": "1.16.0",
+    "version": "1.19.7",
     "date": "2026-5-24",
     "notes": [
       "Fixed compatibility issues opening projects from the latest version of Scratch",
