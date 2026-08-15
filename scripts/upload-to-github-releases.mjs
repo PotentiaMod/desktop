@@ -24,6 +24,11 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
  * @returns {string} Name of tag for current commit
  */
 const getMostRecentTag = () => {
+    // First, fetch tags to ensure we have them locally
+    childProcess.spawnSync('git', ['fetch', '--tags', 'origin'], {
+        stdio: 'inherit'
+    });
+
     const gitProcess = childProcess.spawnSync('git', [
         'describe',
         '--tags',
