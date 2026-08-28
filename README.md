@@ -2,7 +2,7 @@
 
 PotentiaMod as a desktop app.
 
-If you're looking for downloads, head to: https://potentiamod.github.io/pot-desktop
+If you're looking for downloads, head to: https://potentiamod.github.io/online/pot-desktop
 
 Licensed under the GPLv3.0. See LICENSE for more information.
 
