@@ -6,6 +6,7 @@ import zlib from 'node:zlib';
 
 const outputDirectory = pathUtil.join(import.meta.dirname, '../dist-extensions/');
 const potentiaOutputDirectory = pathUtil.join(import.meta.dirname, '../dist-pot-extensions/');
+const ccwOutputDirectory = pathUtil.join(import.meta.dirname, '../dist-ccw-extensions/');
 const nitroOutputDirectory = pathUtil.join(import.meta.dirname, '../dist-nb-extensions/');
 const dashOutputDirectory = pathUtil.join(import.meta.dirname, '../dist-dash-extensions/');
 const mistOutputDirectory = pathUtil.join(import.meta.dirname, '../dist-mw-extensions/');
@@ -434,6 +435,97 @@ const buildNitroOfflineFiles = async () => {
 
   console.log(
     `Fetched Nitro extensions to ${nitroOutputDirectory} (required: ${requiredCount}, optional: ${optionalCount})`
+  );
+};
+
+//Gandi IDE
+const buildCCWOfflineFiles = async () => {
+  console.log(`[CCW] Preparing extension cache from ${extBaseURL}`);
+
+  const tempCCWDirectory = pathUtil.join(import.meta.dirname, '../dist-ccw-extensions-temp/');
+  fs.rmSync(tempCCWDirectory, {
+    recursive: true,
+    force: true
+  });
+  console.log('[CCW] Created temporary output directory');
+
+  const cocreaWorldMetadataPath = 'data/metadata/ccw-extensions.json';
+  console.log(`${createFetchLogPrefix('CCW', 'required', 1, 1)} Fetching ${cocreaWorldMetadataPath}`);
+  const metadataBuffer = await FetchExtFile(cocreaWorldMetadataPath, true);
+  const metadata = JSON.parse(metadataBuffer.toString('utf-8'));
+  console.log('[CCW] Parsed metadata');
+
+  const requiredFiles = new Set([cocreaWorldMetadataPath]);
+  const optionalFiles = new Set([
+    'index.html'
+  ]);
+
+  for (const extension of metadata.extensions || []) {
+    if (!extension || typeof extension !== 'object') {
+      continue;
+    }
+    if (typeof extension.slug === 'string' && extension.slug) {
+      requiredFiles.add(`extensions/cocreaworld/${extension.slug}.js`);
+	  if (extension.docs) {
+        requiredFiles.add(`docs/cocreaworld/${extension.slug}.html`);
+      }
+    }
+    if (typeof extension.image === 'string' && extension.image) {
+      requiredFiles.add(`img/cocreaworld/${extension.image}`);
+    }
+    if (Array.isArray(extension.samples)) {
+      for (const sample of extension.samples) {
+        if (typeof sample === 'string' && sample) {
+          requiredFiles.add(`samples/cocreaworld/${sample}.sb3`);
+        }
+      }
+    }
+  }
+
+  await writeCompressed(tempCCWDirectory, cocreaWorldMetadataPath, metadataBuffer);
+
+  let requiredCount = 1;
+  let optionalCount = 0;
+  const requiredTotal = requiredFiles.size;
+  let requiredIndex = 1;
+  for (const file of requiredFiles) {
+    if (file === cocreaWorldMetadataPath) {
+      continue;
+    }
+    requiredIndex++;
+    console.log(
+      `${createFetchLogPrefix('CCW', 'required', requiredIndex, requiredTotal)} Fetching ${file}`
+    );
+    try {
+      const data = await FetchExtFile(file, true);
+      await writeCompressed(tempCCWDirectory, file, data);
+      requiredCount++;
+    } catch (error) {
+      console.warn(`${createFetchLogPrefix('CCW', 'required', requiredIndex, requiredTotal)} Failed to fetch ${file}:`, error.message);
+    }
+  }
+
+  let optionalIndex = 0;
+  for (const file of optionalFiles) {
+    optionalIndex++;
+    console.log(`${createFetchLogPrefix('CCW', 'optional', optionalIndex)} Fetching ${file}`);
+    const data = await FetchExtFile(file, false);
+    if (!data) {
+      console.log(`${createFetchLogPrefix('CCW', 'optional', optionalIndex)} Missing ${file}`);
+      continue;
+    }
+    await writeCompressed(tempCCWDirectory, file, data);
+    optionalCount++;
+  }
+
+  fs.rmSync(ccwOutputDirectory, {
+    recursive: true,
+    force: true
+  });
+  fs.renameSync(tempCCWDirectory, ccwOutputDirectory);
+
+  console.log(
+    `Fetched CCW extensions to ${ccwOutputDirectory} (required: ${requiredCount}, optional: ${optionalCount})`
   );
 };
 
@@ -1530,6 +1622,7 @@ try {
   await buildPotentiaOfflineFiles();
   await buildAstraOfflineFiles();
   await buildNitroOfflineFiles();
+  await buildCCWOfflineFiles();
   await buildDashOfflineFiles();
   await buildMistiumOfflineFiles();
   await buildZTEngineOfflineFiles();
