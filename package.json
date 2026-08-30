@@ -82,6 +82,7 @@
       "dist-gm-extensions/**/*",
       "dist-mw-extensions/**/*",
       "dist-nb-extensions/**/*",
+      "dist-ccw-extensions/**/*",
       "dist-pm-extensions/**/*",
       "dist-sn-extensions/**/*",
       "dist-sp-extensions/**/*",
