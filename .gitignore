@@ -12,6 +12,8 @@ dist-extensions
 dist-extensions-temp
 dist-pot-extensions
 dist-pot-extensions-temp
+dist-ccw-extensions
+dist-ccw-extensions-temp
 dist-nb-extensions
 dist-nb-extensions-temp
 dist-dash-extensions
