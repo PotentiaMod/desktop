@@ -1,5 +1,16 @@
 [
 {
+    "version": "1.19.9",
+    "date": "2026-8-31",
+    "notes": [
+      "Adds many extensions, some are from Cocrea World.",
+      "Adds two new colors as well, with one of them replacing the Stars accent.",
+      "Features the PWA app installer in the menu.",
+      "Also new to the version are new costumes and sounds.",
+      "Certain fixes"
+    ]
+  },
+{
     "version": "1.19.7",
     "date": "2026-8-14",
     "notes": [
