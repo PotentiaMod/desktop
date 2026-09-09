@@ -77,7 +77,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 24z
+        node-version: 24
     - name: "Configure npm to use D: drive"
       run: |
         npm config set cache D:\npm-cache
