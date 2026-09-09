@@ -94,6 +94,8 @@ jobs:
     - name: Package (x64 NSIS installer)
       working-directory: D:\repo
       run: node release-automation/build.mjs --windows --x64 --production
+      run: node release-automation/build.mjs --windows-portable --x64
+      run: node release-automation/build.mjs --windows-legacy --ia32 --x64
     - name: Print file tree
       working-directory: D:\repo
       run: node scripts/print-file-tree.mjs dist
