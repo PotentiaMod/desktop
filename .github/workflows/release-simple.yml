@@ -1,0 +1,169 @@
+name: Simple Release
+
+# Builds one installer per OS/architecture and uploads each as its own separate
+# file on the GitHub Release for the pushed tag (not zipped together), so each
+# one can be linked to individually from a download page.
+#
+# Unsigned build: no Apple Developer or code-signing certificates are configured
+# for this repo, so macOS and Windows builds are unsigned. Users will see
+# Gatekeeper/SmartScreen warnings on first launch.
+# 
+# Also, the coding was stolen/taken from Nyx IDE.
+
+on:
+  push:
+    tags:
+    - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g. 1.2.0 or v1.2.0). A tag will be created against the branch/commit this workflow is run on if one does not already exist.'
+        required: true
+        type: string
+
+permissions:
+  # required to create the release and upload assets to it
+  contents: write
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.resolve.outputs.tag }}
+    steps:
+    - name: Resolve tag name
+      id: resolve
+      run: |
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          VERSION="${{ inputs.version }}"
+          case "$VERSION" in
+            v*) TAG="$VERSION" ;;
+            *) TAG="v$VERSION" ;;
+          esac
+        else
+          TAG="${{ github.ref_name }}"
+        fi
+        echo "Resolved tag: $TAG"
+        echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+    - name: Create release if it doesn't already exist
+      env:
+        GH_TOKEN: "${{ github.token }}"
+      run: |
+        TAG="${{ steps.resolve.outputs.tag }}"
+        if ! gh release view "$TAG" --repo PotentiaMod/desktop >/dev/null 2>&1; then
+          gh release create "$TAG" --repo PotentiaMod/desktop --title "$TAG" --target "${{ github.sha }}" --generate-notes
+        else
+          echo "Release $TAG already exists, skipping creation."
+        fi
+
+  build-windows:
+    needs: create-release
+    # GitHub's Windows runners have a C: drive and a D: drive. C: is for the OS and has good
+    # read performance but awful write performance. D: has much better write performance
+    # (>20x faster than C:). "npm ci" on C: has been observed to take over an hour, so we do
+    # all the actual work on D: instead.
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        persist-credentials: false
+        path: repo
+    - name: "Move repository to D: drive"
+      run: |
+        Copy-Item -Path repo -Destination D:\repo -Recurse
+        Remove-Item -Path repo -Recurse -Force
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 24
+    - name: "Configure npm to use D: drive"
+      run: |
+        npm config set cache D:\npm-cache
+        npm config set prefix D:\npm-prefix
+    - name: Install dependencies
+      working-directory: D:\repo
+      run: npm ci --loglevel=info
+    - name: Fetch
+      working-directory: D:\repo
+      run: npm run fetch
+    - name: Compile
+      working-directory: D:\repo
+      run: npm run webpack:prod
+    - name: Package (x64 NSIS installer)
+      working-directory: D:\repo
+      run: node release-automation/build.mjs --windows --x64 --production
+    - name: Print file tree
+      working-directory: D:\repo
+      run: node scripts/print-file-tree.mjs dist
+    - name: Upload to release
+      # Using the official gh CLI instead of a hand-rolled fetch()-based uploader: it already
+      # handles GitHub's upload redirects/retries correctly, and it's already available on
+      # every GitHub-hosted runner.
+      shell: bash
+      working-directory: D:\repo
+      run: gh release upload "${{ needs.create-release.outputs.tag }}" dist/*.exe --repo PotentiaMod/desktop --clobber
+      env:
+        GH_TOKEN: "${{ github.token }}"
+
+  build-mac:
+    needs: create-release
+    runs-on: macos-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        persist-credentials: false
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 24
+    - name: Install dependencies
+      run: npm ci --loglevel=info
+    - name: Fetch
+      run: npm run fetch
+    - name: Compile
+      run: npm run webpack:prod
+    - name: Package (separate Intel and Apple Silicon dmgs)
+      run: node release-automation/build.mjs --mac --x64 --arm64 --production
+      env:
+        # Prevent electron-builder from trying to auto-discover a signing identity in the runner's keychain
+        CSC_IDENTITY_AUTO_DISCOVERY: false
+    - name: Print file tree
+      run: node scripts/print-file-tree.mjs dist
+    - name: Upload to release
+      run: gh release upload "${{ needs.create-release.outputs.tag }}" dist/*.dmg --repo PotentiaMod/desktop --clobber
+      env:
+        GH_TOKEN: "${{ github.token }}"
+
+  build-linux:
+    needs: create-release
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        persist-credentials: false
+    - name: Install strip-nondeterminism
+      run: sudo apt-get install strip-nondeterminism
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 24
+    - name: Install dependencies
+      run: npm ci --loglevel=info
+    - name: Fetch
+      run: npm run fetch
+    - name: Compile
+      run: npm run webpack:prod
+    - name: Package (deb, tarball, AppImage)
+      run: node release-automation/build.mjs --debian --tarball --appimage --x64 --production
+    - name: Print file tree
+      run: node scripts/print-file-tree.mjs dist
+    - name: Upload to release
+      run: gh release upload "${{ needs.create-release.outputs.tag }}" dist/*.deb dist/*.tar.gz dist/*.AppImage --repo PotentiaMod/desktop --clobber
+      env:
+        GH_TOKEN: "${{ github.token }}"

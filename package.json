@@ -1,11 +1,11 @@
 {
-  "name": "turbowarp-desktop",
-  "description": "Scratch mod with a compiler, dark mode, a bunch of addons, and more.",
+  "name": "potentiamod-desktop",
+  "description": "TurboWarp mod with a new themes, new features and more!",
   "version": "1.16.0",
   "license": "GPL-3.0",
   "author": {
-    "email": "contact@turbowarp.org",
-    "name": "Thomas Weber"
+    "email": "crystalfranks18@hotmail.com",
+    "name": "Crystal Franks"
   },
   "type": "commonjs",
   "scripts": {
@@ -38,7 +38,7 @@
     "postcss-import": "^14.0.0",
     "postcss-loader": "^4.2.0",
     "postcss-simple-vars": "^6.0.3",
-    "scratch-gui": "github:TurboWarp/scratch-gui#develop",
+    "scratch-gui": "github:PotentiaMod/scratch-gui#develop",
     "style-loader": "^0.23.0",
     "url-loader": "^4.1.1",
     "webpack": "4.47.0",
@@ -69,7 +69,24 @@
       "src-renderer/**/*",
       "dist-renderer-webpack/**/*",
       "dist-library-files/**/*",
-      "dist-extensions/**/*"
+      "dist-extensions/**/*",
+	  "dist-pot-extensions/**/*",
+      "dist-ae-extensions/**/*",
+      "dist-astra-extensions/**/*",
+      "dist-other-extensions/**/*",
+      "dist-ark-extensions/**/*",
+      "dist-bilup-extensions/**/*",
+      "dist-dash-extensions/**/*",
+      "dist-dm-extensions/**/*",
+      "dist-em-extensions/**/*",
+      "dist-gm-extensions/**/*",
+      "dist-mw-extensions/**/*",
+      "dist-nb-extensions/**/*",
+      "dist-ccw-extensions/**/*",
+      "dist-pm-extensions/**/*",
+      "dist-sn-extensions/**/*",
+      "dist-sp-extensions/**/*",
+      "dist-ztengine-extensions/**/*"
     ],
     "extraResources": [
       {
@@ -151,7 +168,7 @@
       "provisioningProfile": "build/development.provisionprofile"
     },
     "linux": {
-      "executableName": "turbowarp-desktop",
+      "executableName": "potentiamod-desktop",
       "artifactName": "${productName}-${os}-${arch}-${version}.${ext}",
       "icon": "./build/",
       "synopsis": "Mod of Scratch with a compiler and more features.",
@@ -159,7 +176,7 @@
       "category": "Development",
       "desktop": {
         "entry": {
-          "StartupWMClass": "turbowarp-desktop",
+          "StartupWMClass": "potentiamod-desktop",
           "Keywords": "scratch;"
         }
       },
@@ -179,7 +196,7 @@
       ]
     },
     "snap": {
-      "summary": "Scratch mod with a compiler, dark mode, a bunch of addons, and more.",
+      "summary": "TurboWarp mod with a new themes, new features and more!",
       "allowNativeWayland": true,
       "plugs": [
         "default",
