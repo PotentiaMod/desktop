@@ -1,6 +1,6 @@
-const PLATFORM_NAME = 'TurboWarp';
-const APP_NAME = 'TurboWarp Desktop';
-const PACKAGER_NAME = 'TurboWarp Packager';
+const PLATFORM_NAME = 'PotentiaMod';
+const APP_NAME = 'PotentiaMod Desktop';
+const PACKAGER_NAME = 'PotentiaMod Packager';
 
 module.exports = {
   PLATFORM_NAME,

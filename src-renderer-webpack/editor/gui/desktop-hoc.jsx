@@ -59,7 +59,7 @@ const handleClickAbout = () => {
 };
 
 const handleClickSourceCode = () => {
-  window.open('https://github.com/TurboWarp');
+  window.open('https://github.com/PotentiaMod');
 };
 
 const securityManager = {
@@ -74,7 +74,7 @@ const securityManager = {
 };
 
 const USERNAME_KEY = 'tw:username';
-const DEFAULT_USERNAME = 'player';
+const DEFAULT_USERNAME = 'Potentia';
 
 const DesktopHOC = function (WrappedComponent) {
   class DesktopComponent extends React.Component {
