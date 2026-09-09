@@ -1,7 +1,7 @@
 {
   "name": "potentiamod-desktop",
-  "description": "TurboWarp mod with a new themes, new features and more!",
-  "version": "1.16.0",
+  "description": "PotentiaMod mod with a new themes, new features and more!",
+  "version": "1.2.0",
   "license": "GPL-3.0",
   "author": {
     "email": "crystalfranks18@hotmail.com",
@@ -24,7 +24,7 @@
     "@babel/preset-env": "^7.12.16",
     "@babel/preset-react": "^7.13.13",
     "@electron/fuses": "^2.1.2",
-    "@turbowarp/extensions": "github:TurboWarp/extensions#master",
+    "@potentiamod/extensions": "github:PotentiaMod/extensions#master",
     "adm-zip": "^0.5.16",
     "autoprefixer": "^9.8.8",
     "babel-loader": "^8.4.1",
@@ -49,19 +49,19 @@
       "terser-webpack-plugin": "^4.2.3"
     }
   },
-  "homepage": "https://desktop.turbowarp.org/",
+  "homepage": "https://potentiamod.github.io/pot-desktop.html",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TurboWarp/desktop.git"
+    "url": "https://github.com/PotentiaMod/desktop.git"
   },
   "bugs": {
-    "url": "https://github.com/TurboWarp/desktop/issues",
-    "email": "contact@turbowarp.org"
+    "url": "https://github.com/PotentiaMod/desktop/issues",
+    "email": "crystalfranks18@hotmail.com"
   },
   "main": "./src-main/entrypoint.js",
   "build": {
-    "appId": "org.turbowarp.desktop",
-    "productName": "TurboWarp",
+    "appId": "org.potentiamod.desktop",
+    "productName": "PotentiaMod",
     "files": [
       "node_modules/**/*",
       "src-main/**/*",
@@ -114,9 +114,9 @@
     },
     "appx": {
       "artifactName": "${productName}-MS-Store-${version}-${arch}.${ext}",
-      "applicationId": "TurboWarp",
-      "displayName": "TurboWarp",
-      "identityName": "45747ThomasWeber.TurboWarpDesktop",
+      "applicationId": "PotentiaMod",
+      "displayName": "PotentiaMod",
+      "identityName": "45747ThomasWeber.PotentiaModDesktop",
       "publisher": "CN=18FA7D4F-01BF-49F2-BF56-782DCEA49C69",
       "publisherDisplayName": "Thomas Weber",
       "backgroundColor": "#4c97ff",
@@ -172,7 +172,7 @@
       "artifactName": "${productName}-${os}-${arch}-${version}.${ext}",
       "icon": "./build/",
       "synopsis": "Mod of Scratch with a compiler and more features.",
-      "description": "TurboWarp is a Scratch mod with a compiler to run projects faster, dark mode for your eyes, a bunch of addons to improve the editor, and more.",
+      "description": "PotentiaMod is a Scratch mod with a compiler to run projects faster, dark mode for your eyes, a bunch of addons to improve the editor, and more.",
       "category": "Development",
       "desktop": {
         "entry": {
@@ -196,7 +196,7 @@
       ]
     },
     "snap": {
-      "summary": "TurboWarp mod with a new themes, new features and more!",
+      "summary": "PotentiaMod mod with a new themes, new features and more!",
       "allowNativeWayland": true,
       "plugs": [
         "default",
