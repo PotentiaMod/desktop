@@ -1,6 +1,7 @@
 const path = require('path');
 const zlib = require('zlib');
 const nodeURL = require('url');
+const settings = require('./settings');
 const {app, protocol, net} = require('electron');
 const {getDist, getPlatform} = require('./platform');
 const packageJSON = require('../package.json');
@@ -64,7 +65,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'pot-extensions': {
     root: path.resolve(__dirname, '../dist-pot-extensions'),
@@ -74,7 +76,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'nb-extensions': {
     root: path.resolve(__dirname, '../dist-nb-extensions'),
@@ -84,7 +87,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'ae-extensions': {
     root: path.resolve(__dirname, '../dist-ae-extensions'),
@@ -94,7 +98,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'ztengine-extensions': {
     root: path.resolve(__dirname, '../dist-ztengine-extensions'),
@@ -104,7 +109,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'bilup-extensions': {
     root: path.resolve(__dirname, '../dist-bilup-extensions'),
@@ -114,7 +120,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'dash-extensions': {
     root: path.resolve(__dirname, '../dist-dash-extensions'),
@@ -124,7 +131,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'mw-extensions': {
     root: path.resolve(__dirname, '../dist-mw-extensions'),
@@ -134,7 +142,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'ccw-extensions': {
     root: path.resolve(__dirname, '../dist-ccw-extensions'),
@@ -144,7 +153,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'sp-extensions': {
     root: path.resolve(__dirname, '../dist-sp-extensions'),
@@ -154,7 +164,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'pm-extensions': {
     root: path.resolve(__dirname, '../dist-pm-extensions'),
@@ -164,7 +175,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'dm-extensions': {
     root: path.resolve(__dirname, '../dist-dm-extensions'),
@@ -174,7 +186,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'sn-extensions': {
     root: path.resolve(__dirname, '../dist-sn-extensions'),
@@ -184,7 +197,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'ark-extensions': {
     root: path.resolve(__dirname, '../dist-ark-extensions'),
@@ -194,7 +208,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'em-extensions': {
     root: path.resolve(__dirname, '../dist-em-extensions'),
@@ -204,7 +219,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'gm-extensions': {
     root: path.resolve(__dirname, '../dist-gm-extensions'),
@@ -214,9 +230,10 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
-  'other': {
+  'other-extensions': {
     root: path.resolve(__dirname, '../dist-other-extensions'),
     supportFetch: true,
     brotli: true,
@@ -224,7 +241,8 @@ const FILE_SCHEMES = {
     stream: true,
     directoryIndex: 'index.html',
     defaultExtension: '.html',
-    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'"
+    csp: "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'",
+	remoteFallback: 'https://potentiamod.github.io/extensions'
   },
   'tw-update': {
     root: path.resolve(__dirname, '../src-renderer/update'),
@@ -290,11 +308,220 @@ const brotliDecompress = (input) => new Promise((resolve, reject) => {
   });
 });
 
+
+
 /**
- * @param {unknown} xml
- * @returns {string}
+ * Directory where files downloaded from the remote fallback are cached so
+ * they keep working when the app is offline or the remote is unreachable.
+ *
+* Each extension library protocol (tw/mw/ae/bl/sp/etc) must have its own independent runtime cache directory;
+* otherwise, extensions with the same name (and identical relative paths) from different libraries
+* could overwrite or contaminate one another. For example, if TurboWarp's `custom.js` is accessed first,
+* its content is written to the shared directory; subsequently, when MistWarp's `custom.js`
+* (sharing the same name) is loaded, the system might hit this contaminated cache first,
+* causing the extension from library A to be loaded instead of the one from library B.
+* @param {string} scheme The protocol scheme name using this cache directory (e.g., 'tw-extensions')
  */
-const escapeXML = (xml) => String(xml).replace(/[<>&'"]/g, c => {
+const getRuntimeCacheRoot = (scheme) => path.join(app.getPath('userData'), scheme);
+
+/**
+ * Whether the remote fallback should be attempted right now. After a failed
+ * attempt we enter a short cooldown so we don't hammer an unreachable server
+ * (and force users to wait for timeouts) on every single request.
+ */
+let remoteFallbackCooldownUntil = 0;
+const shouldUseRemoteFallback = (metadata) => (
+  metadata.remoteFallback &&
+  settings.cloudExtensions &&
+  net.isOnline() &&
+  Date.now() >= remoteFallbackCooldownUntil
+);
+
+/**
+ * Builds the remote URL that matches how prepare-sp-extensions.mjs stores files:
+ * every path segment is URL-encoded and joined with "/".
+ * @param {string} baseURL
+ * @param {string} relativePath
+ * @returns {string|null}
+ */
+const toRemoteFallbackURL = (baseURL, relativePath) => {
+  const normalized = String(relativePath).replace(/^\/+/, '').replace(/\\/g, '/');
+  const parts = normalized.split('/').filter(Boolean);
+  if (parts.length === 0 || parts.some(i => i === '..')) {
+    return null;
+  }
+  const encodedPath = parts.map(i => encodeURIComponent(i)).join('/');
+  return `${baseURL}/${encodedPath}`;
+};
+
+/**
+ * Fetch a single file from the remote fallback with a timeout.
+ *
+ * This promise is guaranteed to settle (with Buffer or null) no matter what
+ * happens: network error, non-200 status, timeout, or the server accepting
+ * the connection but never finishing the response body. Without this, a
+ * hanging remote (eg. SharkPools) would leave the protocol handler stuck
+ * forever instead of falling back to the local cache.
+ * @param {string} url
+ * @param {number} timeoutMs
+ * @returns {Promise<Buffer|null>}
+ */
+const fetchRemoteWithTimeout = (url, timeoutMs = 10000) => new Promise((resolve) => {
+  let parsedURL;
+  try {
+    parsedURL = new URL(url);
+  } catch (e) {
+    resolve(null);
+    return;
+  }
+
+  let settled = false;
+  let timer = null;
+  const finish = (result) => {
+    if (settled) {
+      return;
+    }
+    settled = true;
+    if (timer) {
+      clearTimeout(timer);
+    }
+    resolve(result);
+  };
+
+  const mod = parsedURL.protocol === 'http:' ? require('http') : require('https');
+  const request = mod.get(url, {
+    headers: {
+      'user-agent': 'Mozilla/5.0 (compatible; Bilup/1.0)',
+      'accept-encoding': 'identity'
+    }
+  });
+  timer = setTimeout(() => {
+    request.destroy();
+    finish(null);
+  }, timeoutMs);
+  request.on('response', (response) => {
+    if (response.statusCode !== 200) {
+      response.resume();
+      finish(null);
+      return;
+    }
+    const chunks = [];
+    response.on('data', chunk => chunks.push(chunk));
+    response.on('end', () => finish(Buffer.concat(chunks)));
+    response.on('error', () => finish(null));
+    response.on('aborted', () => finish(null));
+    response.on('close', () => finish(null));
+  });
+  request.on('error', () => finish(null));
+});
+
+/**
+ * Saves a remote fallback response into the writable runtime cache.
+ * @param {string} scheme The scheme this file belongs to (for cache isolation).
+ * @param {string} relativePath
+ * @param {Buffer} data
+ */
+const writeRuntimeCache = async (scheme, relativePath, data) => {
+  const runtimePath = path.join(getRuntimeCacheRoot(scheme), `${relativePath}.br`);
+  const fsPromises = require('fs/promises');
+  await fsPromises.mkdir(path.dirname(runtimePath), {recursive: true});
+  const compressed = await brotliCompress(data);
+  await fsPromises.writeFile(runtimePath, compressed);
+};
+
+/**
+ * Reads a file from the local caches: the writable runtime cache first, then
+ * the bundled (read-only) cache.
+ * @param {Metadata} metadata
+ * @param {string} relativePath
+ * @returns {Promise<Buffer|null>}
+ */
+const tryReadLocal = async (metadata, relativePath) => {
+  const fsPromises = require('fs/promises');
+
+  const candidates = [];
+  // The writable runtime cache only exists for schemes that use a remote fallback.
+  if (metadata.remoteFallback) {
+    candidates.push(path.join(getRuntimeCacheRoot(metadata.scheme), `${relativePath}.br`));
+  }
+  candidates.push(path.join(metadata.root, `${relativePath}.br`));
+
+  for (const candidate of candidates) {
+    try {
+      const brotliData = await fsPromises.readFile(candidate);
+      return await brotliDecompress(brotliData);
+    } catch (e) {
+      // Try the next cache location.
+    }
+  }
+
+  return null;
+};
+
+/**
+ * Tries the remote fallback first (when enabled); on failure records a
+ * cooldown so subsequent requests skip straight to the local cache.
+ *
+ * When the remote responds with content that differs from the local caches,
+ * it is written into the writable runtime cache, effectively "overwriting"
+ * the bundled cache with the latest remote version (the bundled cache ships
+ * inside a read-only asar, so the runtime cache is the override layer that
+ * tryReadLocal() checks first).
+ * @param {Metadata} metadata
+ * @param {string} relativePath
+ * @returns {Promise<Buffer|null>}
+ */
+const tryFetchRemote = async (metadata, relativePath) => {
+  if (!shouldUseRemoteFallback(metadata)) {
+    return null;
+  }
+  const url = toRemoteFallbackURL(metadata.remoteFallback, relativePath);
+  if (!url) {
+    return null;
+  }
+  const data = await fetchRemoteWithTimeout(url);
+  if (!data) {
+    // Remote unreachable: fall back to the local cache for a while.
+    remoteFallbackCooldownUntil = Date.now() + 60 * 1000;
+    console.warn(`[extensions] Failed to fetch ${url}, using local cache`);
+    return null;
+  }
+  remoteFallbackCooldownUntil = 0;
+
+  try {
+    const localData = await tryReadLocal(metadata, relativePath);
+    if (!localData || !localData.equals(data)) {
+      await writeRuntimeCache(metadata.scheme, relativePath, data);
+    }
+  } catch (error) {
+    console.warn(`[extensions] Failed to update local cache for ${relativePath}:`, error.message);
+  }
+  return data;
+};
+
+/**
+ * Resolves a file for a brotli-cached scheme, trying the remote fallback first
+ * (when configured and enabled) and the local caches afterwards.
+ * @param {Metadata} metadata
+ * @param {string} relativePath
+ * @returns {Promise<Buffer>}
+ */
+const resolveBrotliData = async (metadata, relativePath) => {
+  let data = null;
+
+  if (shouldUseRemoteFallback(metadata)) {
+    data = await tryFetchRemote(metadata, relativePath);
+  }
+
+  if (!data) {
+    data = await tryReadLocal(metadata, relativePath);
+  }
+
+  if (!data) {
+    throw new Error(`Failed to read file: ${relativePath}`);
+  }
+
+ = (xml) => String(xml).replace(/[<>&'"]/g, c => {
   switch (c) {
     case '<': return '&lt;';
     case '>': return '&gt;';
@@ -403,12 +630,9 @@ const createModernProtocolHandler = (metadata) => {
       };
 
       if (metadata.brotli) {
-        // Reading it all into memory is not ideal, but we've had so many problems with streaming
-        // files from the asar that I can settle with this.
-        const brotliResponse = await net.fetch(nodeURL.pathToFileURL(`${resolved}.br`));
-        const brotliData = await brotliResponse.arrayBuffer();
-        const decompressed = await brotliDecompress(brotliData);
-        return new Response(decompressed, {
+        const relativePath = resolved.slice(root.length);
+        const data = await resolveBrotliData(metadata, relativePath);
+        return new Response(data, {
           headers
         });
       }
@@ -473,11 +697,11 @@ const createLegacyBrotliProtocolHandler = (metadata) => {
 
       // Reading it all into memory is not ideal, but we've had so many problems with streaming
       // files from the asar that I can settle with this.
-      const brotliData = await fsPromises.readFile(`${resolved}.br`);
-      const decompressed = await brotliDecompress(brotliData);
+      const relativePath = resolved.slice(root.length);
+      const data = await resolveBrotliData(metadata, relativePath);
 
       callback({
-        data: decompressed,
+        data,
         headers: {
           ...baseHeaders,
           'content-type': mimeType

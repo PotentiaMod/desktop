@@ -120,11 +120,178 @@ class ProjectRunningWindow extends AbtractWindow {
         });
       }
     }
-
-    if (parsed.origin === 'https://extensions.turbowarp.org') {
+	
+	// Requests from various extension libraries are always routed through their corresponding local protocols and handled centrally by the protocol layer,
+// following the "cloud-first, fallback to local on failure" logic (see `remoteFallback` in `src-main/protocols.js`).
+    if (parsed.origin === 'https://potentiamod.github.io') {
+       let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/potentiamod')) {
+        pathname = pathname.slice('/extensions/extensions/potentiamod'.length);
+      }
+	  // pathname always has a leading / already
       return callback({
-        // pathname always has a leading / already
-        redirectURL: `tw-extensions://.${parsed.pathname}`
+        redirectURL: `tw-extensions://.${pathname}`
+      });
+    }
+
+//PotentiaMod
+    if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/potentiamod')) {
+        pathname = pathname.slice('/extensions/extensions/potentiamod'.length);
+      }
+      return callback({
+        redirectURL: `pot-extensions://.${pathname}`
+      });
+    }
+	
+    if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/nitrobolt')) {
+        pathname = pathname.slice('/extensions/extensions/nitrobolt'.length);
+      }
+      return callback({
+        redirectURL: `nb-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/astraeditor')) {
+        pathname = pathname.slice('/extensions/extensions/astraeditor'.length);
+      }
+      return callback({
+        redirectURL: `ae-extensions://.${pathname}`
+      });
+    }
+
+    if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/zerotwoengine')) {
+        pathname = pathname.slice('/extensions/extensions/zerotwoengine'.length);
+      }
+      return callback({
+        redirectURL: `ztengine-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/bilup')) {
+        pathname = pathname.slice('/extensions/extensions/bilup'.length);
+      }
+      return callback({
+        redirectURL: `bilup-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/dash')) {
+        pathname = pathname.slice('/extensions/extensions/dash'.length);
+      }
+      return callback({
+        redirectURL: `dash-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/mistium')) {
+        pathname = pathname.slice('/extensions/extensions/mistium'.length);
+      }
+      return callback({
+        redirectURL: `mw-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/cocreaworld')) {
+        pathname = pathname.slice('/extensions/extensions/cocreaworld'.length);
+      }
+      return callback({
+        redirectURL: `ccw-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/sharkpool')) {
+        pathname = pathname.slice('/extensions/extensions/sharkpool'.length);
+      }
+      return callback({
+        redirectURL: `sp-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/penguinmod')) {
+        pathname = pathname.slice('/extensions/extensions/penguinmod'.length);
+      }
+      return callback({
+        redirectURL: `pm-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/dinosaurmod')) {
+        pathname = pathname.slice('/extensions/extensions/dinosaurmod'.length);
+      }
+      return callback({
+        redirectURL: `dm-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/snailide')) {
+        pathname = pathname.slice('/extensions/extensions/snailide'.length);
+      }
+      return callback({
+        redirectURL: `sn-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/arkide')) {
+        pathname = pathname.slice('/extensions/extensions/arkide'.length);
+      }
+      return callback({
+        redirectURL: `ark-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/electramod')) {
+        pathname = pathname.slice('/extensions/extensions/electramod'.length);
+      }
+      return callback({
+        redirectURL: `em-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/gaiamod')) {
+        pathname = pathname.slice('/extensions/extensions/gaiamod'.length);
+      }
+      return callback({
+        redirectURL: `gm-extensions://.${pathname}`
+      });
+    }
+	
+	if (parsed.origin === 'https://potentiamod.github.io') {
+      let pathname = parsed.pathname;
+      if (pathname.startsWith('/extensions/extensions/other')) {
+        pathname = pathname.slice('/extensions/extensions/other'.length);
+      }
+      return callback({
+        redirectURL: `other-extensions://.${pathname}`
       });
     }
 
