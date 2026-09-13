@@ -17,7 +17,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version to release (e.g. 1.2.0 or v1.2.0). A tag will be created against the branch/commit this workflow is run on if one does not already exist.'
+        description: 'Version to release (e.g. 1.2.1 or v1.2.1). A tag will be created against the branch/commit this workflow is run on if one does not already exist.'
         required: true
         type: string
 
