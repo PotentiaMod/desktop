@@ -6,6 +6,22 @@ node_modules/
 
 # Built files
 dist
+dist-ae-extensions
+dist-ark-extensions
+dist-bilup-extensions
+dist-ccw-extensions
+dist-dash-extensions
+dist-dm-extensions
+dist-em-extensions
+dist-gm-extensions
+dist-mw-extensions
+dist-nb-extensions
+dist-other-extensions
+dist-pm-extensions
+dist-pot-extensions
+dist-sn-extensions
+dist-sn-extensions
+dist-ztengine-extensions
 dist-renderer-webpack
 dist-library-files
 dist-extensions
