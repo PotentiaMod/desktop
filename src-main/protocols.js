@@ -69,7 +69,9 @@ const FILE_SCHEMES = {
   },
   'pot-extensions': {
     root: path.resolve(__dirname, '../dist-pot-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -79,7 +81,9 @@ const FILE_SCHEMES = {
   },
   'nb-extensions': {
     root: path.resolve(__dirname, '../dist-nb-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -89,7 +93,9 @@ const FILE_SCHEMES = {
   },
   'ae-extensions': {
     root: path.resolve(__dirname, '../dist-ae-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -99,7 +105,9 @@ const FILE_SCHEMES = {
   },
   'ztengine-extensions': {
     root: path.resolve(__dirname, '../dist-ztengine-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -109,7 +117,9 @@ const FILE_SCHEMES = {
   },
   'bilup-extensions': {
     root: path.resolve(__dirname, '../dist-bilup-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -119,7 +129,9 @@ const FILE_SCHEMES = {
   },
   'dash-extensions': {
     root: path.resolve(__dirname, '../dist-dash-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -129,7 +141,9 @@ const FILE_SCHEMES = {
   },
   'mw-extensions': {
     root: path.resolve(__dirname, '../dist-mw-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -139,7 +153,9 @@ const FILE_SCHEMES = {
   },
   'ccw-extensions': {
     root: path.resolve(__dirname, '../dist-ccw-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -149,7 +165,9 @@ const FILE_SCHEMES = {
   },
   'sp-extensions': {
     root: path.resolve(__dirname, '../dist-sp-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -159,7 +177,9 @@ const FILE_SCHEMES = {
   },
   'pm-extensions': {
     root: path.resolve(__dirname, '../dist-pm-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -169,7 +189,9 @@ const FILE_SCHEMES = {
   },
   'dm-extensions': {
     root: path.resolve(__dirname, '../dist-dm-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -179,7 +201,9 @@ const FILE_SCHEMES = {
   },
   'sn-extensions': {
     root: path.resolve(__dirname, '../dist-sn-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -189,7 +213,9 @@ const FILE_SCHEMES = {
   },
   'ark-extensions': {
     root: path.resolve(__dirname, '../dist-ark-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -199,7 +225,9 @@ const FILE_SCHEMES = {
   },
   'em-extensions': {
     root: path.resolve(__dirname, '../dist-em-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -209,7 +237,9 @@ const FILE_SCHEMES = {
   },
   'gm-extensions': {
     root: path.resolve(__dirname, '../dist-gm-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
@@ -219,7 +249,9 @@ const FILE_SCHEMES = {
   },
   'other-extensions': {
     root: path.resolve(__dirname, '../dist-other-extensions'),
+    standard: true,
     supportFetch: true,
+    cors: true,
     brotli: true,
     embeddable: true,
     stream: true,
