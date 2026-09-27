@@ -261,7 +261,7 @@ const FILE_SCHEMES = {
   },
   'tw-update': {
     root: path.resolve(__dirname, '../src-renderer/update'),
-    csp: "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src https://potentiamod.github.io/online/pot-desktop.html"
+    csp: "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src https://potentiamod.github.io/pot-desktop.html"
   },
   'tw-security-prompt': {
     root: path.resolve(__dirname, '../src-renderer/security-prompt'),
