@@ -1,5 +1,5 @@
 {
-  "name": "nitrobolt-desktop",
+  "name": "potentiamod-desktop",
   "description": "A mod of TurboWarp with tons of new features, and a haven for developers who don't want to be restricted by \"compatibility\".",
   "version": "1.0.0",
   "packageManager": "pnpm@10.33.0",
