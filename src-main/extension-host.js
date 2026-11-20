@@ -1,6 +1,7 @@
 const EXTENSION_HOST_PREFIXES = Object.freeze({
   'extensions.turbowarp.org': 'turbowarp',
-  'extensions.nitrobolt.org': 'nitrobolt'
+  'potentiamod.github.io/pot-extensions': 'potentiamod',
+  'gaiawindwave90.github.io/gm-extensions': 'gaiamod'
 });
 
 const getExtensionHostPrefix = (url) => {
