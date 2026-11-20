@@ -63,6 +63,9 @@
       "core-js",
       "electron-winstaller",
       "scratch-gui",
+	  "scratch-blocks",
+	  "scratch-paint",
+	  "scratch-vm",
       "scratch-l10n"
     ]
   },
