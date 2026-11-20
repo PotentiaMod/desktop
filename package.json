@@ -6,8 +6,8 @@
   "license": "GPL-3.0",
   "type": "commonjs",
   "author": {
-    "name": "Cubester",
-    "email": "contact@nitrobolt.org"
+    "name": "Crytal Franks",
+    "email": "crystalfranks18@hotmail.com"
   },
   "scripts": {
     "fetch": "node scripts/download-library-files.mjs && node scripts/download-packager.mjs && node scripts/prepare-extensions.mjs",
@@ -29,7 +29,8 @@
     "@babel/preset-env": "^7.12.16",
     "@babel/preset-react": "^7.13.13",
     "@electron/fuses": "^2.1.2",
-    "@nitro-bolt/extensions": "github:Nitro-Bolt/extensions#master",
+    "@gaiamod/extensions": "github:GaiaWindWave90/gm-extensions#master",
+    "@potentiamod/pot-extensions": "github:PotentiaMod/pot-extensions#master",
     "@transifex/api": "4.3.0",
     "@turbowarp/extensions": "github:TurboWarp/extensions#master",
     "autoprefixer": "^9.8.8",
@@ -45,7 +46,7 @@
     "postcss-import": "^14.0.0",
     "postcss-loader": "^4.2.0",
     "postcss-simple-vars": "^6.0.3",
-    "scratch-gui": "github:Nitro-Bolt/scratch-gui#develop",
+    "scratch-gui": "github:PotentiaMod/scratch-gui#develop",
     "scratch-render-fonts": "github:TurboWarp/scratch-render-fonts#master",
     "style-loader": "^0.23.0",
     "url-loader": "^4.1.1",
@@ -65,20 +66,20 @@
       "scratch-l10n"
     ]
   },
-  "homepage": "https://desktop.nitrobolt.org/",
+  "homepage": "https://potentiamod.github.io/desktop.html",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nitro-Bolt/desktop.git"
+    "url": "https://github.com/PotentiaMod/desktop.git"
   },
   "bugs": {
-    "url": "https://github.com/Nitro-Bolt/desktop/issues",
-    "email": "contact@nitrobolt.org"
+    "url": "https://github.com/PotentiaMod/desktop/issues",
+    "email": "crystalfranks18@hotmail.com"
   },
   "main": "./src-main/entrypoint.js",
-  "desktopName": "org.nitrobolt.desktop",
+  "desktopName": "org.potentiamod.desktop",
   "build": {
-    "appId": "org.nitrobolt.desktop",
-    "productName": "NitroBolt",
+    "appId": "org.potentiamod.desktop",
+    "productName": "PotentiaMod",
     "files": [
       "node_modules/**/*",
       "src-main/**/*",
@@ -123,12 +124,12 @@
     },
     "appx": {
       "artifactName": "${productName}-Windows-Store-${arch}-${version}.${ext}",
-      "applicationId": "NitroBolt",
-      "displayName": "NitroBolt",
-      "identityName": "Cubester.NitroBolt",
+      "applicationId": "PotentiaMod",
+      "displayName": "PotentiaMod",
+      "identityName": "GaiaWindWav90.PotentiaMod",
       "publisher": "CN=54F4F60F-5369-41E6-BB97-D1795FE27384",
-      "publisherDisplayName": "Cubester",
-      "backgroundColor": "#ff512b",
+      "publisherDisplayName": "GaiaWindWav90",
+      "backgroundColor": "#4800CC",
       "showNameOnTiles": true
     },
     "mac": {
@@ -154,16 +155,16 @@
       ]
     },
     "linux": {
-      "executableName": "nitrobolt-desktop",
+      "executableName": "potentiamod-desktop",
       "artifactName": "${productName}-Linux-Installer-${arch}-${version}.${ext}",
-      "maintainer": "Cubester <contact@nitrobolt.org>",
+      "maintainer": "Crystal Franks <crystalfranks18@hotmail.com>",
       "icon": "./build/",
-      "synopsis": "Mod of TurboWarp with tons of powerful new features.",
-      "description": "NitroBolt is a mod of TurboWarp with tons of new features, and a haven for developers who don't want to be restricted by \"compatibility\".",
+      "synopsis": "Mod of TurboWarp with tons of special features.",
+      "description": "PotentiaMod is a TurboWarp mod with a compiler to run projects faster, dark mode for your eyes, a bunch of addons to improve the editor, and more.",
       "category": "Development",
       "desktop": {
         "entry": {
-          "StartupWMClass": "nitrobolt-desktop",
+          "StartupWMClass": "potentiamod-desktop",
           "Keywords": "scratch; turbowarp;"
         }
       },
@@ -192,6 +193,146 @@
       "artifactName": "${productName}-Linux-Installer-${arch}-${version}.${ext}"
     },
     "fileAssociations": [
+	{
+        "ext": "pot",
+        "name": "PotentiaMod Project",
+        "description": "PotentiaMod Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.pot"
+      },
+	  {
+        "ext": "cmp",
+        "name": "CattyMod Project",
+        "description": "CattyMod Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.cmp"
+      },
+	  {
+        "ext": "mwp",
+        "name": "MistWarp Project",
+        "description": "MistWarp Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.mwp"
+      },
+	  {
+        "ext": "dbp",
+        "name": "DashBlocks Project",
+        "description": "DashBlocks Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.dbp"
+      },
+	  {
+        "ext": "torch",
+        "name": "CodeTorch Project",
+        "description": "CodeTorch Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.torch"
+      },
+	  {
+        "ext": "pmp",
+        "name": "PenguinMod Project",
+        "description": "PenguinMod Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.pmp"
+      },
+	  {
+        "ext": "pm",
+        "name": "PenguinMod Project",
+        "description": "PenguinMod Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.pm"
+      },
+	  {
+        "ext": "cw",
+        "name": "Cattiest World Project",
+        "description": "Cattiest World Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.cw"
+      },
+	  {
+        "ext": "dino",
+        "name": "DinosaurMod Project",
+        "description": "DinosaurMod Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.dino"
+      },
+	  {
+        "ext": "ich",
+        "name": "Itch Project",
+        "description": "Itch Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.ich"
+      },
+	  {
+        "ext": "bm",
+        "name": "BananaMod Project",
+        "description": "BananaMod Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.bm"
+      },
+	  {
+        "ext": "arkide",
+        "name": "Ark IDE Project",
+        "description": "Ark IDE Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.arkide"
+      },
+	  {
+        "ext": "zinc",
+        "name": "Zinc Coding Project",
+        "description": "Zinc Coding Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.zinc"
+      },
+	  {
+        "ext": "falcon",
+        "name": "FalconMod Project",
+        "description": "FalconMod Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.falcon"
+      },
+	  {
+        "ext": "coffee",
+        "name": "Espresso Project",
+        "description": "Espresso Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.coffee"
+      },
+	  {
+        "ext": "snail",
+        "name": "Snail IDE Project",
+        "description": "Snail IDE Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.snail"
+      },
+	  {
+        "ext": "electra",
+        "name": "ElectraMod Project",
+        "description": "ElectraMod Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.electra"
+      },
+	  {
+        "ext": "gaia",
+        "name": "GaiaMod Project",
+        "description": "GaiaMod Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.gaia"
+      },
+	  {
+        "ext": "zip",
+        "name": "Generic Project",
+        "description": "Generic Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.zip"
+      },
+	  {
+        "ext": "sbx",
+        "name": "Scratch X Project",
+        "description": "Scratch X Project",
+        "role": "Editor",
+        "mimeType": "application/x.scratch.sbx"
+      },
       {
         "ext": "sb3",
         "name": "Scratch 3 Project",
