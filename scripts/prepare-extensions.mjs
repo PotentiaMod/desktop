@@ -4,7 +4,8 @@ import fsPromises from 'node:fs/promises';
 import { promisify } from 'node:util';
 import zlib from 'node:zlib';
 import TurboWarpBuilder from '@turbowarp/extensions/builder';
-import NitroBoltBuilder from '@nitro-bolt/extensions/builder';
+import PotentiaModBuilder from '@potentiamod/pot-extensions/builder';
+import GaiaModBuilder from '@gaiamod/extensions/builder';
 
 const mode = 'desktop';
 
@@ -53,10 +54,15 @@ const builders = [
     prefix: 'turbowarp'
   },
   {
-    name: 'NitroBolt',
-    Builder: NitroBoltBuilder,
-    // Keep the two extension galleries separate so identical slugs can coexist.
-    prefix: 'nitrobolt'
+    name: 'PotentiaMod',
+    Builder: PotentiaModBuilder,
+    prefix: 'potentiamod'
+  },
+  {
+    name: 'GaiaMod',
+    Builder: GaiaModBuilder,
+    // Keep the three extension galleries separate so identical slugs can coexist.
+    prefix: 'gaiamod'
   }
 ];
 
